@@ -3,11 +3,18 @@ package br.com.alura.mvc.mudi.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pedido {
 
-	private String id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nomeDoProduto;
-	private BigDecimal valorNegociago;
+	private BigDecimal valorNegociado;
 	private LocalDate dataDaEntrega;
 	private String urlDoProduto;
 	private String urlDaImagemDoProduto;
@@ -15,20 +22,20 @@ public class Pedido {
 	
 	public Pedido() {}
 	
-	public Pedido(String id, String nomeDoProduto, BigDecimal valorNegociago,
+	public Pedido(Long id, String nomeDoProduto, BigDecimal valorNegociago,
 			String urlDoProduto, String urlDaImagemDoProduto, String descricao) {
 		this.id = id;
 		this.nomeDoProduto = nomeDoProduto;
-		this.valorNegociago = valorNegociago;
+		this.valorNegociado = valorNegociago;
 		this.urlDoProduto = urlDoProduto;
 		this.urlDaImagemDoProduto = urlDaImagemDoProduto;
 		this.descricao = descricao;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNomeDoProduto() {
@@ -38,10 +45,10 @@ public class Pedido {
 		this.nomeDoProduto = nomeDoProduto;
 	}
 	public BigDecimal getValorNegociago() {
-		return valorNegociago;
+		return valorNegociado;
 	}
 	public void setValorNegociago(BigDecimal valorNegociago) {
-		this.valorNegociago = valorNegociago;
+		this.valorNegociado = valorNegociago;
 	}
 	public LocalDate getDataDaEmtrega() {
 		return dataDaEntrega;
@@ -78,7 +85,7 @@ public class Pedido {
 		result = prime * result + ((nomeDoProduto == null) ? 0 : nomeDoProduto.hashCode());
 		result = prime * result + ((urlDaImagemDoProduto == null) ? 0 : urlDaImagemDoProduto.hashCode());
 		result = prime * result + ((urlDoProduto == null) ? 0 : urlDoProduto.hashCode());
-		result = prime * result + ((valorNegociago == null) ? 0 : valorNegociago.hashCode());
+		result = prime * result + ((valorNegociado == null) ? 0 : valorNegociado.hashCode());
 		return result;
 	}
 	@Override
@@ -120,17 +127,17 @@ public class Pedido {
 				return false;
 		} else if (!urlDoProduto.equals(other.urlDoProduto))
 			return false;
-		if (valorNegociago == null) {
-			if (other.valorNegociago != null)
+		if (valorNegociado == null) {
+			if (other.valorNegociado != null)
 				return false;
-		} else if (!valorNegociago.equals(other.valorNegociago))
+		} else if (!valorNegociado.equals(other.valorNegociado))
 			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", nomeDoProduto=" + nomeDoProduto + ", valorNegociago=" + valorNegociago
+		return "Pedido [id=" + id + ", nomeDoProduto=" + nomeDoProduto + ", valorNegociago=" + valorNegociado
 				+ ", dataDaEmtrega=" + dataDaEntrega + ", urlDoProduto=" + urlDoProduto + ", urlDaImagemDoProduto="
 				+ urlDaImagemDoProduto + ", descricao=" + descricao + "]";
 	}

@@ -14,7 +14,9 @@ import br.com.alura.mvc.mudi.model.Pedido;
 public class HomeService {
 
 	public String getHome(Model model) {
-		Pedido pedido = new Pedido("1", "Smartphone Samsung Galaxy S20+ 128GB Cloud Blue - 8GB RAM Tela 6,7” Câm. Quádrupla + Selfie 10MP",
+		Pedido pedido = new Pedido(
+				1l, 
+				"Smartphone Samsung Galaxy S20+ 128GB Cloud Blue - 8GB RAM Tela 6,7” Câm. Quádrupla + Selfie 10MP",
 				new BigDecimal(5.000),
 				"https://www.amazon.com.br/Smartphone-Samsung-Galaxy-128GB-Cloud/dp/B085F3VMT8/ref=sr_1_6?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=galaxy+s20&qid=1612109757&sr=8-6",
 				"https://images-na.ssl-images-amazon.com/images/I/61Trx3jsMFL._AC_SL1500_.jpg",
