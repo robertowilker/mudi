@@ -22,6 +22,14 @@ public class Pedido {
 	
 	public Pedido() {}
 	
+	public Pedido(String nomeDoProduto, String urlDoProduto, String urlDaImagemDoProduto, String descricao) {
+		this.nomeDoProduto = nomeDoProduto;
+		this.urlDoProduto = urlDoProduto;
+		this.urlDaImagemDoProduto = urlDaImagemDoProduto;
+		this.descricao = descricao;
+	}
+
+
 	public Pedido(Long id, String nomeDoProduto, BigDecimal valorNegociago,
 			String urlDoProduto, String urlDaImagemDoProduto, String descricao) {
 		this.id = id;
