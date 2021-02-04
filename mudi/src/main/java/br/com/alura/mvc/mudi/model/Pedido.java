@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,25 +21,54 @@ public class Pedido {
 	private String urlDoProduto;
 	private String urlDaImagemDoProduto;
 	private String descricao;
+	@Enumerated(EnumType.STRING)
+	private StatusPedido status;
 	
 	public Pedido() {}
 	
-	public Pedido(String nomeDoProduto, String urlDoProduto, String urlDaImagemDoProduto, String descricao) {
+	public Pedido(String nomeDoProduto, String urlDoProduto, String urlDaImagemDoProduto,
+			String descricao, StatusPedido status) {
 		this.nomeDoProduto = nomeDoProduto;
 		this.urlDoProduto = urlDoProduto;
 		this.urlDaImagemDoProduto = urlDaImagemDoProduto;
 		this.descricao = descricao;
+		this.status = status;
 	}
-
-
-	public Pedido(Long id, String nomeDoProduto, BigDecimal valorNegociago,
-			String urlDoProduto, String urlDaImagemDoProduto, String descricao) {
+	
+	public Pedido(Long id, String nomeDoProduto, BigDecimal valorNegociado, LocalDate dataDaEntrega,
+			String urlDoProduto, String urlDaImagemDoProduto, String descricao, StatusPedido status) {
 		this.id = id;
 		this.nomeDoProduto = nomeDoProduto;
-		this.valorNegociado = valorNegociago;
+		this.valorNegociado = valorNegociado;
+		this.dataDaEntrega = dataDaEntrega;
 		this.urlDoProduto = urlDoProduto;
 		this.urlDaImagemDoProduto = urlDaImagemDoProduto;
 		this.descricao = descricao;
+		this.status = status;
+	}
+
+	public BigDecimal getValorNegociado() {
+		return valorNegociado;
+	}
+
+	public void setValorNegociado(BigDecimal valorNegociado) {
+		this.valorNegociado = valorNegociado;
+	}
+
+	public LocalDate getDataDaEntrega() {
+		return dataDaEntrega;
+	}
+
+	public void setDataDaEntrega(LocalDate dataDaEntrega) {
+		this.dataDaEntrega = dataDaEntrega;
+	}
+
+	public StatusPedido getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPedido status) {
+		this.status = status;
 	}
 
 	public Long getId() {

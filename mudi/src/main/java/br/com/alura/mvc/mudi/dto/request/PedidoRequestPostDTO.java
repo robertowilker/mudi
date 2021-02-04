@@ -2,6 +2,8 @@ package br.com.alura.mvc.mudi.dto.request;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.alura.mvc.mudi.model.StatusPedido;
+
 public class PedidoRequestPostDTO {
 
 	@NotBlank
@@ -12,15 +14,25 @@ public class PedidoRequestPostDTO {
 	private String urlDaImagemDoProduto;
 	@NotBlank
 	private String descricao;
+	private StatusPedido status;
 	
 	public PedidoRequestPostDTO() {}
 
 	public PedidoRequestPostDTO(String nomeDoProduto, String urlDoProduto, String urlDaImagemDoProduto,
-			String descricao) {
+			String descricao, StatusPedido status) {
 		this.nomeDoProduto = nomeDoProduto;
 		this.urlDoProduto = urlDoProduto;
 		this.urlDaImagemDoProduto = urlDaImagemDoProduto;
 		this.descricao = descricao;
+		this.status = status;
+	}
+	
+	public StatusPedido getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPedido status) {
+		this.status = status;
 	}
 
 	public String getNomeDoProduto() {
